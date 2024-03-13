@@ -60,7 +60,7 @@ def make_one_prediction(predictors,test_data):
     return combined
 
 def TrainModel(data):
-    matches=pd.read_csv('f:/Machine Learning/MatchPredictor/model/matches.csv',index_col=0)
+    matches=pd.read_csv('matches.csv',index_col=0)
     
     matches=matches.groupby("team").get_group(data["team"])
     matches["target"]=matches["result"].astype("category").cat.codes
