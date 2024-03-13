@@ -99,6 +99,11 @@ def TrainModel(data):
     return rf, matches_rolling.loc[matches_rolling.shape[0]-1:]
 
 
+@app.route('/', methods = ['GET']) 
+@cross_origin()
+def started_server():
+    return "Server Started!" 
+
 @app.route('/predict', methods = ['POST']) 
 @cross_origin()
 def predict_match(): 
