@@ -173,9 +173,9 @@ def get_schedule():
     data=requests.get(standings_url, headers=headers)
     datastr=str(data)
     x=re.findall("[0-9][0-9][0-9]",datastr)
-    # if(x[0]!="200"):
-    #     print("Failure!", x[0])
-    #     return
+    if(x[0]!="200"):
+        print("Failure!", x[0])
+        return
     soup=BeautifulSoup(data.text,features="lxml")
     standings_table=soup.select('table.stats_table')[0]
     links=standings_table.find_all('a')
